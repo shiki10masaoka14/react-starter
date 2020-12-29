@@ -1,10 +1,22 @@
 import React from "react";
 
-function App() {
+function Hello({ firstName, lastName }) {
   return (
-    <div>
-      <p>Hello React!</p>
-    </div>
+    <p>
+      Hello {firstName} {lastName}
+    </p>
+  );
+}
+
+function App() {
+  const data = {
+    firstName: "John",
+    lastName: "Doe",
+  };
+  return (
+    <>
+      <Hello {...data} />
+    </>
   );
 }
 
