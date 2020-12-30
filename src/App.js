@@ -1,22 +1,25 @@
 import React from "react";
 
-function Hello({ firstName, lastName }) {
-  return (
-    <p>
-      Hello {firstName} {lastName}
-    </p>
-  );
-}
+// function hello(isReact) {
+//   if (isReact) {
+//     return <p>Hello React</p>;
+//   } else {
+//     return <p>Hello Vue.js</p>;
+//   }
+// }
 
 function App() {
-  const data = {
-    firstName: "John",
-    lastName: "Doe",
-  };
+  const isReact = true;
   return (
-    <>
-      <Hello {...data} />
-    </>
+    <div>
+      {(() => {
+        if (isReact) {
+          return <p>Hello react</p>;
+        } else {
+          return <p>Hello vue.js</p>;
+        }
+      })()}
+    </div>
   );
 }
 
