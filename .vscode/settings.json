@@ -1,5 +1,4 @@
 {
-  "cSpell.words": [
-    "browserslist"
-  ]
+  "cSpell.words": ["browserslist"],
+  "editor.suggest.snippetsPreventQuickSuggestions": false
 }
