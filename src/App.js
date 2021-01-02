@@ -1,32 +1,29 @@
-import React from "react";
-import { useState, useEffect } from "react";
-
-function Timer() {
-  const [count, setCount] = useState(60);
-
-  useEffect(() => {
-    const time = setInterval(() => {
-      setCount((prevCount) => (prevCount === 0 ? (prevCount = 60) : prevCount - 1));
-    }, 1000);
-    return () => clearInterval(time);
-  }, []);
-
-  return (
-    <>
-      <p>{count}</p>
-      <button onClick={() => setCount(60)}>ボタン</button>
-    </>
-  );
+import React, { useState } from "react";
+function useCounter(initialCount, v) {
+  const [count, setCount] = useState(initialCount);
+  const increment = () => {
+    setCount(count + v);
+  };
+  const decrement = () => {
+    setCount(count - v);
+  };
+  return { count, increment, decrement };
 }
 
 function App() {
-  const [visible, setVisible] = useState(true);
+  const counter = useCounter(0, 2);
+  const counter2 = useCounter(10, 20);
+
   return (
-    <>
-      <button onClick={() => setVisible(!visible)}>スイッチ</button>
-      {visible ? <Timer /> : ""}
-    </>
+    <div>
+      <p>count: {counter.count}</p>
+      <button onClick={counter.decrement}>-</button>
+      <button onClick={counter.increment}>+</button>
+
+      <p>count: {counter2.count}</p>
+      <button onClick={counter2.decrement}>-</button>
+      <button onClick={counter2.increment}>+</button>
+    </div>
   );
 }
-
 export default App;

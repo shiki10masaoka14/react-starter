@@ -1,4 +1,7 @@
 {
-  "cSpell.words": ["browserslist"],
+  "cSpell.words": [
+    "browserslist",
+    "soarflat"
+  ],
   "editor.suggest.snippetsPreventQuickSuggestions": false
 }
